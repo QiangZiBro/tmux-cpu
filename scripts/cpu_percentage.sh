@@ -29,7 +29,7 @@ print_cpu_percentage() {
     else
       load=`cached_eval ps -aux | awk '{print $3}' | tail -n+2 | awk '{s+=$1} END {print s}'`
       cpus=$(cpus_number)
-      echo "$load $cpus" | awk -v format="$cpu_percentage_format" '{printf format, $1/$2}'
+      echo CPU:"$load $cpus" | awk -v format="$cpu_percentage_format" '{printf format, $1/$2}'
     fi
   fi
 }
